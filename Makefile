@@ -6,7 +6,7 @@
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 14:53:35 by tozaki            #+#    #+#              #
-#    Updated: 2025/10/18 15:57:04 by tozaki           ###   ########.fr        #
+#    Updated: 2025/10/19 14:19:43 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 LIBS	=	ar -rc
-SRCS	=	ft_isalpha.c	\
+PART1	=	ft_isalpha.c	\
 			ft_isdigit.c	\
 			ft_isalnum.c	\
 			ft_isascii.c	\
@@ -25,7 +25,20 @@ SRCS	=	ft_isalpha.c	\
 			ft_memcpy.c		\
 			ft_memmove.c	\
 			ft_strlcpy.c	\
-			ft_strlcat.c
+			ft_strlcat.c	\
+			ft_toupper.c	\
+			ft_tolower.c	\
+			ft_strchr.c		\
+			ft_strrchr.c	\
+			ft_strncmp.c	\
+			ft_memchr.c		\
+			ft_memcmp.c		\
+			ft_strnstr.c	\
+			ft_atoi.c		\
+			ft_calloc.c		\
+			ft_strdup.c
+PART2	=	ft_substr.c
+SRCS	=	$(PART1) $(PART2)
 BONUSES	=	ft_lstnew.c		\
 			ft_lstadd_front.c	\
 			ft_lstsize.c	\

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:05:26 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/18 16:26:13 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/19 22:51:53 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -52,8 +52,4 @@ int	main(void)
 	ft_memmove(dest, src, 5);
 	printf("%s\n", dest);
 }
-
-
-
-
-
+*/

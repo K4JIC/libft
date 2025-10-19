@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 18:05:35 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 22:53:24 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/19 14:46:16 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/19 15:45:07 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-#include <stddef.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
+	char	*sub;
 	size_t	slen;
 	size_t	i;
 
-	slen = ft_strlen((char *)src);
-	if (slen > size)
-		return (slen);
+	slen = ft_strlen(s);
+	if (start > slen)
+		return (NULL);
+	sub = (char *)malloc(len * sizeof(char) + 1);
+	if (sub == NULL)
+		return (NULL);
 	i = 0;
-	while (i < size && src[i])
+	while (i < len && s[start + i])
 	{
-		dst[i] = src[i];
+		sub[i] = s[start + i];
 		i++;
 	}
-	return (slen);
+	sub[i] = '\0';
+	return (sub);
 }
 /*
 #include <stdio.h>
-#include <bsd/string.h>
 
 int	main(void)
 {
-	int		n = 20;
-	int		size = 4;
-	char	dst1[n];
-	char	dst2[n];
-	char	src[] = "helloworld";
-	int		out1;
-	int		out2;
+	char			s[] = "helloworld";
+	unsigned int	start = 3;
+	size_t 			len = 4;
+	char			*sub;
 
-	out1 = ft_strlcpy(dst1, src, size); 
-	out2 = strlcpy(dst2, src, size); 
-	printf("copy     ; %d, %s\n", out1, dst1);
-	printf("original ; %d, %s\n", out2, dst2);
+	sub = ft_substr(s, start, len);
+	printf("substr : %s\n", sub);
+	free(sub);
 	return (1);
 }
 */

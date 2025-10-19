@@ -1,52 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 12:36:43 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/19 12:37:11 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/19 22:51:09 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
+	void	*mem;
+	size_t	len;
 
-int	ft_atoi(const char *nptr)
-{
-	int	res;
-	int	sign;
-	int	i;
-
-	res = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (sign * res);
+	len = nmemb * size;
+	if (nmemb == 0 || size == 0)
+		len = 1;
+	mem = malloc(len);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, len);
+	return (mem);
 }
 /*
 #include <stdio.h>
 
-int	main(int argc,char **argv)
+int main(void)
 {
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
+	int *mem;
+	size_t size;
+
+	size = 3;
+	mem = (int *)ft_calloc(3, sizeof(int));
+	for (int i = 0; i < 3; i++)
+		printf("mem[%d] : %d\n", i, mem[i]);
+	free(mem);
+	return (0);
 }
 */

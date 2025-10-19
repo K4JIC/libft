@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 12:36:43 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/19 13:54:24 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/19 14:03:51 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+char	*ft_strdup(const char *s)
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
+	size_t	len;
+	size_t	i;
+	char	*cpy;
 
-int	ft_atoi(const char *nptr)
-{
-	int	res;
-	int	sign;
-	int	i;
-
-	res = 0;
-	sign = 1;
+	len = ft_strlen(s);
+	cpy = (char *)malloc(len * sizeof(char) + 1);
+	if (cpy == NULL)
+		return (NULL);
 	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
+	while (i < len)
 	{
-		sign *= -1;
+		cpy[i] = s[i];
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (sign * res);
+	cpy[i] = '\0';
+	return (cpy);
 }
-/*
+
 #include <stdio.h>
 
-int	main(int argc,char **argv)
+int	main(void)
 {
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
+	char s[] = "aiueo";
+	char *cpy;
+
+	cpy = ft_strdup(s);
+	printf("%s\n", cpy);
 	return (1);
 }
-*/

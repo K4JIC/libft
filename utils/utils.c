@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:11:59 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 12:08:42 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/19 13:44:31 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/19 13:46:52 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_isdigit(int c)
+void	printn(int *nbrs, size_t size)
 {
-	if (c == EOF)
-		return (0);
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
+	for (int i = 0; i < size; i++)
+		printf("nbrs[%d] : %d\n", i, nbrs[i]);
 }
