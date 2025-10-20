@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:39:49 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/20 15:43:08 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/20 16:01:05 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
+	char			*res;
+	size_t			len;
+	unsigned int	i;
 
-int	ft_atoi(const char *nptr)
-{
-	long	res;
-	int		sign;
-	int		i;
-
-	res = 0;
-	sign = 1;
+	len = ft_strlen(s);
+	res = (char *)malloc(len * sizeof(char) + 1);
+	if (res == NULL)
+		return (NULL);
 	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
+	while (s[i])
 	{
-		sign *= -1;
+		res[i] = f(i, s[i]);
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
+	res[i] = '\0';
+	return (res);
 }
 
 #include <stdio.h>
 
-int	main(int argc,char **argv)
-{
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
-}
+char	caesar(unsigned int i, char c) {return((char)i + c);}
 
+int	main(void)
+{
+	char	s[] = "ozaki tomoya";
+
+	printf("%s\n", ft_strmapi(s, (*caesar)));
+	return (0);
+}

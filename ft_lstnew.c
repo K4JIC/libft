@@ -1,52 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:39:49 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/20 18:34:52 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/20 19:18:16 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+t_list	*ft_lstnew(void *content)
 {
-	return ((9 <= c && c <= 13) || c == 32);
+	t_list	*nt;
+
+	nt = (t_list *)malloc(sizeof(t_list));
+	if (!nt)
+		return (NULL);
+	nt->content = content;
+	nt->next = NULL;
+	return (nt);
 }
-
-int	ft_atoi(const char *nptr)
-{
-	long	res;
-	int		sign;
-	int		i;
-
-	res = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
-}
-
+/*
 #include <stdio.h>
 
-int	main(int argc,char **argv)
+int main(void)
 {
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
+	t_list *t;
+	t = ft_lstnew("amenbo");
+	printf("%s\n", (char *)t->content);
 }
-
+*/

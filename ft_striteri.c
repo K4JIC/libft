@@ -1,52 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:39:49 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/20 16:01:36 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/20 16:20:46 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	ft_isspace(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
+	unsigned int	i;
 
-int	ft_atoi(const char *nptr)
-{
-	long	res;
-	int		sign;
-	int		i;
-
-	res = 0;
-	sign = 1;
 	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
+	while (s[i])
 	{
-		sign *= -1;
+		f(i, &s[i]);
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
 }
 
 #include <stdio.h>
 
-int	main(int argc,char **argv)
-{
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
-}
+void	caesar(unsigned int i, char *s) {*s = (char)i + *s;}
 
+int	main(void)
+{
+	char	s[] = "ozaki tomoya";
+	ft_striteri(s, (*caesar));
+	printf("%s\n", s);
+	return (0);
+}

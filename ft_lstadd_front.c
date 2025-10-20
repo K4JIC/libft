@@ -1,52 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:39:49 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/20 18:52:34 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/20 19:20:44 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	long	res;
-	int		sign;
-	int		i;
-
-	res = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
+	new->next = *lst;
+	*lst = new;
 }
 
 #include <stdio.h>
 
-int	main(int argc,char **argv)
+int	main(void)
 {
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
-}
+	t_list	*primal;
+	t_list	*secondaly;
 
+	primal = ft_lstnew("amenbo");
+	secondaly = ft_lstnew("akaina");
+	ft_lstadd_front(&primal, secondaly);
+	printf("%s\n", (char *)primal->content);
+	printf("%s\n", (char *)primal->next->content);
+	return (0);
+}

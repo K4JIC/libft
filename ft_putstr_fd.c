@@ -1,52 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 20:57:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:39:49 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/20 16:36:52 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/20 16:53:09 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-static int	ft_isspace(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	return ((9 <= c && c <= 13) || c == 32);
-}
+	int	i;
 
-int	ft_atoi(const char *nptr)
-{
-	long	res;
-	int		sign;
-	int		i;
-
-	res = 0;
-	sign = 1;
 	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
+	while (s[i])
 	{
-		sign *= -1;
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
 }
+/*
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-#include <stdio.h>
-
-int	main(int argc,char **argv)
+int	main(void)
 {
-	(void)argc;
-	printf("%d\n", ft_atoi(argv[1]));
-	return (1);
-}
+	int	fd;
 
+	fd = open("./file", O_WRONLY);
+	ft_putstr_fd("amembo", fd);
+	close(fd);
+	return (0);
+}
+*/
