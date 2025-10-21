@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:54:21 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/21 02:10:58 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 22:22:59 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
+	long	ln;
+	char	c;
 
-	s = ft_itoa(n);
-	ft_putstr_fd(s, fd);
+	ln = (long)n;
+	if (ln < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ln *= -1;
+	}
+	if (ln >= 10)
+		ft_putnbr_fd((int)(ln / 10), fd);
+	c = ln % 10 + '0';
+	ft_putchar_fd(c, fd);
 }
 /*
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:41:30 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/21 02:03:51 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 21:31:18 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_countwords(const char *str, char c)
 	flag = 1;
 	count = 0;
 	i = 0;
-	while (str[i] == c)
+	while (str[i] == c && str[i])
 		i++;
 	while (str[i])
 	{

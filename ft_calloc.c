@@ -6,11 +6,12 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 12:37:11 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 22:51:09 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 19:19:47 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdint.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -18,6 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*mem;
 	size_t	len;
 
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
 	len = nmemb * size;
 	if (nmemb == 0 || size == 0)
 		len = 1;

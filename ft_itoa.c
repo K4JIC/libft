@@ -6,13 +6,13 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:01:14 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 17:19:29 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 21:39:38 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	ft_intlen(int n)
+static size_t	ft_intlen(long n)
 {
 	size_t	len;
 
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	ascii = (char *)malloc((sign + len) * sizeof(char) + 1);
 	if (ascii == NULL)
 		return (NULL);
-	ascii[len] = '\0';
+	ascii[sign + len] = '\0';
 	while (len)
 	{
 		ascii[sign + len - 1] = num % 10 + '0';

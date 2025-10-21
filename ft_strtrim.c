@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 22:54:50 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 01:17:58 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 21:27:16 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,11 @@ char	*ft_strtrim(const char *s1, const char *set)
 		j--;
 	tend = &s1[j];
 	if (tend - tstart <= 0)
-		return (NULL);
+	{
+		trimmeds = (char *)malloc(1);
+		trimmeds[0] = 0;
+		return (trimmeds);
+	}
 	trimmeds = ft_strndup(tstart, tend - tstart);
 	return (trimmeds);
 }

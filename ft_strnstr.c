@@ -6,11 +6,12 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:41:05 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/18 20:56:23 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 19:08:11 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -20,17 +21,29 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (little[0] == '\0')
 		return ((char *)&big[0]);
 	i = 0;
-	while (big[i] || i < len)
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j])
+		while (big[i + j] == little[j] && (i + j) < len)
 		{
+			j++;
 			if (little[j] == '\0')
 				return ((char *)&big[i]);
-			j++;
 		}
 		i++;
 	}
 	return (NULL);
 }
+/*
+#include <bsd/string.h>
 
+int	main(void)
+{
+	char	big[30] = "aaabcabcd";
+	char	little[10] = "cd";
+
+	printf("copy : %p\n",ft_strnstr(big, little, 8));
+	printf("original : %p\n",strnstr(big, little, 8));
+	return (0);
+}
+*/
