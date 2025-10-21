@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 20:42:38 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/17 22:37:26 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 02:28:07 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ucs;
-	int				i;
+	size_t				i;
 
+	ucs = (unsigned char *)s;
+	i = 0;
 	while (i < n)
 	{
-		*ucs = (unsigned char)c;
-		ucs++;
+		ucs[i] = (unsigned char)c;
 		i++;
 	}
 	return (s);

@@ -53,7 +53,7 @@ char	*ft_itoa(int n)
 		ascii[0] = '-';
 	return (ascii);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -64,4 +64,4 @@ int	main(void)
 	printf("%s\n", ft_itoa(2147483647));   // "2147483647"
 	printf("%s\n", ft_itoa(-2147483648));  // "-2147483648"
 }
-
+*/

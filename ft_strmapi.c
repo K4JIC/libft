@@ -32,7 +32,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	res[i] = '\0';
 	return (res);
 }
-
+/*
 #include <stdio.h>
 
 char	caesar(unsigned int i, char c) {return((char)i + c);}
@@ -44,3 +44,4 @@ int	main(void)
 	printf("%s\n", ft_strmapi(s, (*caesar)));
 	return (0);
 }
+*/

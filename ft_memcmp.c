@@ -20,8 +20,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	ucs1 = (unsigned char *)s1;
 	ucs2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
 	i = 0;
-	while (i < n && ucs1[i] == ucs2[i])
+	while (i < n - 1 && ucs1[i] == ucs2[i])
 		i++;
 	return (ucs1[i] - ucs2[i]);
 }

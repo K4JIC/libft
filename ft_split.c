@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:41:30 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 15:01:53 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 02:03:51 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	**ft_split(const char *s, char c)
 	wlist[i] = NULL;
 	return (wlist);
 }
-
+/*
 #include <stdio.h>
 
 int main(void)
@@ -113,4 +113,4 @@ int main(void)
  }
  return (0);
 }  
-
+*/

@@ -32,7 +32,7 @@ char	*ft_strdup(const char *s)
 	cpy[i] = '\0';
 	return (cpy);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -44,3 +44,4 @@ int	main(void)
 	printf("%s\n", cpy);
 	return (1);
 }
+*/

@@ -58,7 +58,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 		i++;
 	tstart = &s1[i];
 	j = ft_strlen(s1);
-	while (ft_chrinstr(s1[j - 1], set) && j)
+	while (ft_ischrset(s1[j - 1], set) && j)
 		j--;
 	tend = &s1[j];
 	if (tend - tstart <= 0)

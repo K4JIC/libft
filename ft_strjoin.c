@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joineds[i + j] = '\0';
 	return (joineds);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -54,4 +54,4 @@ int	main(void)
 	printf("strjoin : %s\n", js);
 	return (1);
 }
-
+*/

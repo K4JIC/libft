@@ -40,7 +40,7 @@ int	ft_atoi(const char *nptr)
 	}
 	return ((int)(sign * res));
 }
-
+/*
 #include <stdio.h>
 
 int	main(int argc,char **argv)
@@ -49,4 +49,4 @@ int	main(int argc,char **argv)
 	printf("%d\n", ft_atoi(argv[1]));
 	return (1);
 }
-
+*/

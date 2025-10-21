@@ -6,7 +6,7 @@
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 14:53:35 by tozaki            #+#    #+#              #
-#    Updated: 2025/10/19 14:19:43 by tozaki           ###   ########.fr        #
+#    Updated: 2025/10/21 02:19:10 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,17 @@ PART1	=	ft_isalpha.c	\
 			ft_atoi.c		\
 			ft_calloc.c		\
 			ft_strdup.c
-PART2	=	ft_substr.c
+PART2	=	ft_substr.c		\
+			ft_strjoin.c	\
+			ft_strtrim.c	\
+			ft_split.c		\
+			ft_itoa.c		\
+			ft_strmapi.c	\
+			ft_striteri.c	\
+			ft_putchar_fd.c	\
+			ft_putstr_fd.c	\
+			ft_putendl_fd.c	\
+			ft_putnbr_fd.c
 SRCS	=	$(PART1) $(PART2)
 BONUSES	=	ft_lstnew.c		\
 			ft_lstadd_front.c	\
@@ -54,7 +64,7 @@ OBJS	=	$(SRCS:%.c=%.o)
 $(NAME): $(OBJS)
 	$(LIBS) $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS) $(HDR)
+%.o: %.c $(HDR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean

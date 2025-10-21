@@ -11,16 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 static size_t	min(int a, int b)
 {

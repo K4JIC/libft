@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:01:36 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 16:20:46 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/21 02:05:15 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-
+/*
 #include <stdio.h>
 
 void	caesar(unsigned int i, char *s) {*s = (char)i + *s;}
@@ -33,3 +33,4 @@ int	main(void)
 	printf("%s\n", s);
 	return (0);
 }
+*/
