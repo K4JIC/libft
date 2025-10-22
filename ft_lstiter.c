@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 20:42:38 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:25:07 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/22 15:45:37 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/22 16:51:00 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	unsigned char	*ucs;
-	size_t			i;
+	t_list	*cur;
 
-	ucs = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (!lst)
+		return ;
+	cur = lst;
+	while (cur)
 	{
-		ucs[i] = (unsigned char)c;
-		i++;
+		f(cur->content);
+		cur = cur->next;
 	}
-	return (s);
 }

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 20:42:38 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:25:07 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/22 15:53:55 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/22 16:13:15 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*ucs;
-	size_t			i;
+	t_list	*nlst;
+	t_list	*cur;
+	t_list	*ncur;
 
-	ucs = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (!lst || !f)
+		return (NULL);
+	nlst = NULL;
+	cur = lst;
+	while (cur)
 	{
-		ucs[i] = (unsigned char)c;
-		i++;
+		ncur = ft_lstnew((*f)(cur->content));
+		if (!ncur)
+		{
+			if (del)
+				ft_lstclear(&nlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&nlst, ncur);
+		cur = cur->next;
 	}
-	return (s);
+	return (nlst);
 }

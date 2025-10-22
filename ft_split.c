@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:41:30 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/21 21:31:18 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:47:11 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,17 @@ static char	*ft_get_next_word(char *str[], const char c)
 char	**ft_split(const char *s, char c)
 {
 	char	**wlist;
-	int		NofWords;
+	int		number_of_words;
 	int		i;
 	char	*str;
 
 	str = (char *)s;
-	NofWords = ft_countwords(s, c);
-	wlist = (char **)malloc((NofWords + 1) * sizeof(char *));
+	number_of_words = ft_countwords(s, c);
+	wlist = (char **)malloc((number_of_words + 1) * sizeof(char *));
 	if (wlist == NULL)
 		return (NULL);
 	i = 0;
-	while (i < NofWords)
+	while (i < number_of_words)
 	{
 		wlist[i] = ft_get_next_word(&str, c);
 		i++;
