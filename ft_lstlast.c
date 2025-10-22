@@ -1,30 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 18:48:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 01:41:19 by tozaki           ###   ########.fr       */
+/*   Created: 2025/10/22 01:42:21 by tozaki            #+#    #+#             */
+/*   Updated: 2025/10/22 01:42:23 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-int	ft_lstsize(t_list *lst)
-{
-	t_list	*cur;
-	int		len;
-
-	cur = lst;
-	len = 0;
-	while (cur->next != NULL)
-	{
-		cur = cur->next;
-		len++;
-	}
-	return (len);
-}
 

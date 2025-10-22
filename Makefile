@@ -6,7 +6,7 @@
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 14:53:35 by tozaki            #+#    #+#              #
-#    Updated: 2025/10/21 02:19:10 by tozaki           ###   ########.fr        #
+#    Updated: 2025/10/22 01:41:55 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,25 +48,39 @@ PART2	=	ft_substr.c		\
 			ft_putstr_fd.c	\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c
-SRCS	=	$(PART1) $(PART2)
+M_SRCS	=	$(PART1) $(PART2)
 BONUSES	=	ft_lstnew.c		\
 			ft_lstadd_front.c	\
 			ft_lstsize.c	\
 			ft_lstlast.c	\
-			ft_lstadd_back.c	\
-			ft_lstdelone.c	\
-			ft_lstclear.c	\
-			ft_lstiter.c	\
-			ft_lstmap.c		\
+			ft_lstadd_back.c
+B_SRCS	=	$(PART1) $(PART2) $(BONUSES)
 HDR		=	libft.h
-OBJS	=	$(SRCS:%.c=%.o)
+M_OBJS	=	$(M_SRCS:%.c=%.o)
+B_OBJS	=	$(B_SRCS:%.c=%.o)
 
-$(NAME): $(OBJS)
-	$(LIBS) $(NAME) $(OBJS)
+.PHONY: all
+all: $(NAME)
+
+$(NAME): $(M_OBJS)
+	$(LIBS) $(NAME) $(M_OBJS)
+
+.PHONY: bonus
+bonus: $(B_OBJS)
+	rm -f $(NAME)
+	$(LIBS) $(NAME) $(B_OBJS)
 
 %.o: %.c $(HDR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS)
+	rm -f $(B_OBJS)
+
+.PHONY: fclean
+fclean: clean
+	rm -f $(NAME)
+
+.PHONY: re
+re: fclean all
+
