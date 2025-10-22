@@ -6,7 +6,7 @@
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 14:53:35 by tozaki            #+#    #+#              #
-#    Updated: 2025/10/22 01:41:55 by tozaki           ###   ########.fr        #
+#    Updated: 2025/10/22 13:53:51 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ BONUSES	=	ft_lstnew.c		\
 			ft_lstadd_front.c	\
 			ft_lstsize.c	\
 			ft_lstlast.c	\
-			ft_lstadd_back.c
+			ft_lstadd_back.c\
+			ft_lstdelone.c
 B_SRCS	=	$(PART1) $(PART2) $(BONUSES)
 HDR		=	libft.h
 M_OBJS	=	$(M_SRCS:%.c=%.o)
