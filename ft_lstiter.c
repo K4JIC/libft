@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 15:45:37 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:51:00 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 23:55:00 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
 	t_list	*cur;
 
-	if (!lst)
+	if (!lst || !f)
 		return ;
 	cur = lst;
 	while (cur)

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:49:19 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:49:31 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:37:45 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*ft_strndup(const char *str, size_t size)
 	size_t	i;
 
 	cpy = (char *)malloc(size * sizeof(char) + 1);
-	if (cpy == NULL)
+	if (!cpy)
 		return (NULL);
 	i = 0;
 	while (i < size)
@@ -58,12 +58,14 @@ char	*ft_strtrim(const char *s1, const char *set)
 		i++;
 	tstart = &s1[i];
 	j = ft_strlen(s1);
-	while (ft_ischrset(s1[j - 1], set) && j)
+	while (ft_ischrset(s1[j - 1], set) && j > i)
 		j--;
 	tend = &s1[j];
 	if (tend - tstart <= 0)
 	{
 		trimmeds = (char *)malloc(1);
+		if (!trimmeds)
+			return (NULL);
 		trimmeds[0] = 0;
 		return (trimmeds);
 	}

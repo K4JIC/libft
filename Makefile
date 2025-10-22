@@ -6,7 +6,7 @@
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 14:53:35 by tozaki            #+#    #+#              #
-#    Updated: 2025/10/22 16:14:22 by tozaki           ###   ########.fr        #
+#    Updated: 2025/10/23 03:54:11 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,17 +62,20 @@ B_SRCS	=	$(PART1) $(PART2) $(BONUSES)
 HDR		=	libft.h
 M_OBJS	=	$(M_SRCS:%.c=%.o)
 B_OBJS	=	$(B_SRCS:%.c=%.o)
+OBJS	=	$(M_OBJS)
+ifdef WITH_BONUS
+OBJS += $(B_OBJS)
+endif
 
 .PHONY: all
 all: $(NAME)
 
 $(NAME): $(M_OBJS)
-	$(LIBS) $(NAME) $(M_OBJS)
+	$(LIBS) $(NAME) $(OBJS)
 
 .PHONY: bonus
 bonus: $(B_OBJS)
-	rm -f $(NAME)
-	$(LIBS) $(NAME) $(B_OBJS)
+	make WITH_BONUS=1
 
 %.o: %.c $(HDR)
 	$(CC) $(CFLAGS) -c $< -o $@

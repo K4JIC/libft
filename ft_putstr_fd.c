@@ -6,11 +6,10 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:36:52 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 16:53:09 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:34:27 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)

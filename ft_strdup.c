@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 13:54:24 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 14:03:51 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 23:58:23 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 	char	*cpy;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	cpy = (char *)malloc(len * sizeof(char) + 1);
-	if (cpy == NULL)
+	if (!cpy)
 		return (NULL);
 	i = 0;
 	while (i < len)

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 15:53:55 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:13:15 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 23:55:39 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*cur;
 	t_list	*ncur;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
 	nlst = NULL;
 	cur = lst;
@@ -27,8 +27,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ncur = ft_lstnew((*f)(cur->content));
 		if (!ncur)
 		{
-			if (del)
-				ft_lstclear(&nlst, del);
+			ft_lstclear(&nlst, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&nlst, ncur);

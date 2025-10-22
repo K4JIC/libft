@@ -6,11 +6,10 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:48:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:48:07 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:32:50 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 int	ft_lstsize(t_list *lst)

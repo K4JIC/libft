@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mamcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:43:25 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/17 22:03:33 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 17:50:53 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*ucsrc;
 	unsigned int	i;
 
+	if (!n)
+		return (dest);
+	if (!dest && !src)
+		return (NULL);
 	ucdest = (unsigned char *)dest;
 	ucsrc = (unsigned char *)src;
 	i = 0;

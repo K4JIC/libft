@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 15:02:26 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/19 15:24:30 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:35:53 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
 	joineds = (char *)malloc(s1len + s2len + 1);
-	if (joineds == NULL)
+	if (!joineds)
 		return (NULL);
 	i = 0;
 	while (s1[i])

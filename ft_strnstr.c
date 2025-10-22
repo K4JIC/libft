@@ -6,12 +6,11 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:41:05 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/21 19:08:11 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:37:22 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -36,6 +35,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 /*
 #include <bsd/string.h>
+#include <stdio.h>
 
 int	main(void)
 {

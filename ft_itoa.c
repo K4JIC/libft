@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:01:14 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/21 21:39:38 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:30:34 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	if (num < 0)
 		num *= -1;
 	ascii = (char *)malloc((sign + len) * sizeof(char) + 1);
-	if (ascii == NULL)
+	if (!ascii)
 		return (NULL);
 	ascii[sign + len] = '\0';
 	while (len)

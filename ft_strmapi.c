@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:43:08 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/20 16:01:05 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:36:38 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 
 	len = ft_strlen(s);
 	res = (char *)malloc(len * sizeof(char) + 1);
-	if (res == NULL)
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (s[i])

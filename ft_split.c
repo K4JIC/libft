@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:41:30 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 16:47:11 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:34:55 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*ft_strndup(const char *str, size_t size)
 	size_t	i;
 
 	cpy = (char *)malloc(size * sizeof(char) + 1);
-	if (cpy == NULL)
+	if (!cpy)
 		return (NULL);
 	i = 0;
 	while (i < size && str[i])
@@ -84,7 +84,7 @@ char	**ft_split(const char *s, char c)
 	str = (char *)s;
 	number_of_words = ft_countwords(s, c);
 	wlist = (char **)malloc((number_of_words + 1) * sizeof(char *));
-	if (wlist == NULL)
+	if (!wlist)
 		return (NULL);
 	i = 0;
 	while (i < number_of_words)
