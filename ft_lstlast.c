@@ -6,8 +6,21 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 01:42:21 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 01:42:23 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 13:00:31 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*cur;
+
+	if (!lst)
+		return (lst);
+	cur = lst;
+	while (cur->next)
+		cur = cur->next;
+	return (cur);
+}
 

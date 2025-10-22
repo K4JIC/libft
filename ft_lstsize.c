@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:48:00 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 01:41:19 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/22 13:04:08 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	ft_lstsize(t_list *lst)
 	t_list	*cur;
 	int		len;
 
+	if (!lst)
+		return (0);
 	cur = lst;
-	len = 0;
-	while (cur->next != NULL)
+	len = 1;
+	while (cur->next)
 	{
 		cur = cur->next;
 		len++;
