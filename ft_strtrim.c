@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:49:19 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 18:37:45 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:16:25 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,41 +27,19 @@ static int	ft_ischrset(int c, const char *chrset)
 	return (0);
 }
 
-static char	*ft_strndup(const char *str, size_t size)
-{
-	char	*cpy;
-	size_t	i;
-
-	cpy = (char *)malloc(size * sizeof(char) + 1);
-	if (!cpy)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char		*trimmeds;
-	const char	*tstart;
-	const char	*tend;
-	size_t		i;
-	size_t		j;
+	size_t		start;
+	size_t		end;
 
-	i = 0;
-	while (ft_ischrset(s1[i], set) && s1[i])
-		i++;
-	tstart = &s1[i];
-	j = ft_strlen(s1);
-	while (ft_ischrset(s1[j - 1], set) && j > i)
-		j--;
-	tend = &s1[j];
-	if (tend - tstart <= 0)
+	start = 0;
+	while (ft_ischrset(s1[start], set) && s1[start])
+		start++;
+	end = ft_strlen(s1);
+	while (ft_ischrset(s1[end - 1], set) && end > start)
+		end--;
+	if (end - start <= 0)
 	{
 		trimmeds = (char *)malloc(1);
 		if (!trimmeds)
@@ -69,7 +47,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 		trimmeds[0] = 0;
 		return (trimmeds);
 	}
-	trimmeds = ft_strndup(tstart, tend - tstart);
+	trimmeds = ft_substr(s1, start, end - start);
 	return (trimmeds);
 }
 /*

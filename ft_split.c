@@ -6,29 +6,12 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:41:30 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 18:34:55 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:28:24 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-static char	*ft_strndup(const char *str, size_t size)
-{
-	char	*cpy;
-	size_t	i;
-
-	cpy = (char *)malloc(size * sizeof(char) + 1);
-	if (!cpy)
-		return (NULL);
-	i = 0;
-	while (i < size && str[i])
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
+#include "libft.h"
 
 static int	ft_countwords(const char *str, char c)
 {
@@ -56,21 +39,21 @@ static int	ft_countwords(const char *str, char c)
 static char	*ft_get_next_word(char *str[], const char c)
 {
 	char	*cpy;
-	char	*start;
-	char	*end;
+	size_t	start;
+	size_t	end;
 	int		i;
 
 	i = 0;
 	while (((*str)[i] == c) && (*str)[i])
 		i++;
-	start = &(*str)[i];
+	start = i;
 	while (((*str)[i] != c) && (*str)[i])
 		i++;
-	end = &(*str)[i];
-	cpy = ft_strndup(start, end - start);
+	end = i;
+	cpy = ft_substr(*str, start, end - start);
 	if (cpy == NULL)
 		return (NULL);
-	(*str) = end + 1;
+	(*str) = *str + end + 1;
 	return (cpy);
 }
 
