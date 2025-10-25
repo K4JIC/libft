@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 15:02:26 by tozaki            #+#    #+#             */
-/*   Updated: 2025/10/22 18:35:53 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/10/25 21:08:56 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,40 +18,32 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*joineds;
 	size_t	s1len;
 	size_t	s2len;
-	int		i;
-	int		j;
+	size_t	totallen;
 
+	if (!s1 || !s2)
+		return (NULL);
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
-	joineds = (char *)malloc(s1len + s2len + 1);
+	totallen = s1len + s2len;
+	joineds = (char *)malloc(totallen + 1);
 	if (!joineds)
 		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		joineds[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-	{
-		joineds[i + j] = s2[j];
-		j++;
-	}
-	joineds[i + j] = '\0';
+	ft_memcpy(joineds, s1, s1len);
+	ft_strlcat(joineds, s2, totallen + 1);
+	joineds[totallen] = '\0';
 	return (joineds);
 }
-/*
-#include <stdio.h>
 
-int	main(void)
-{
-	char	*js;
-	char	s1[] = "hello";
-	char	s2[] = "world";
+// #include <stdio.h>
 
-	js = ft_strjoin(s1, s2);
-	printf("strjoin : %s\n", js);
-	return (1);
-}
-*/
+// int	main(void)
+// {
+// 	char	*js;
+// 	char	s1[] = "hello";
+// 	char	s2[] = "world";
+
+// 	js = ft_strjoin(s1, s2);
+// 	printf("strjoin : %s\n", js);
+// 	return (1);
+// }
+
